@@ -1,7 +1,10 @@
-<ul class="list-group">
-  <li class="list-group-item" 
-  *ngFor="let section of sections"
-  (click)="loadStudents(section.id)">
-    {{section.name}}
-  </li>
-</ul>
+
+<div class="panel panel-info" *ngIf='sections'>
+  <div class="panel-heading">
+      <b>Sections</b>
+   </div>
+   <div class="list-group">
+     <div class="list-group-item" *ngFor="let section of sections"
+     (click)="loadStudents(section.id)">{{section.name}}</div>
+   </div>
+</div>
