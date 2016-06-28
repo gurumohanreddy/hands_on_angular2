@@ -1,9 +1,11 @@
 <div class="container">
   <div class="col-md-2">
-    <klass-list (onKlassChange)="reloadSections($event)"></klass-list>
+    <klass-list [klassList]="klasses"
+    (onKlassChange)="reloadSections($event)"></klass-list>
   </div>
   <div class="col-md-2">
-    <section-list (onSectionChange)="reloadStudents()"></section-list>
+    <section-list [(sectionList)]="sections"
+    (onSectionChange)="reloadStudents()"></section-list>
   </div>
   <div class="col-md-4">Students List</div>
   <div class="col-md-4">Students Details</div>

@@ -1,4 +1,4 @@
-import {Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input } from '@angular/core';
 import { SectionComponent } from './section.component';
 import { KlassListComponent } from '../klass/klass-list.component';
 import {Section} from '../shared/resources';
@@ -11,7 +11,7 @@ import { APIService } from '../shared/api.service';
   directives : [SectionComponent,KlassListComponent]
 })
 export class SectionListComponent implements OnInit {
-  sections:Section[];
+  @Input('sectionList') sections:Section[];
   constructor(private _apiService:APIService){
 
   }
@@ -23,4 +23,5 @@ export class SectionListComponent implements OnInit {
     this._apiService.getAllSections(klassId)
     .then(sections => this.sections = sections);
   }
+
 }
