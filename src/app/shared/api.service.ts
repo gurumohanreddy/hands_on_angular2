@@ -15,7 +15,6 @@ export class APIService {
     return this._http.get(`${this._baseUrl}/klasses.json?access_token=${this._accessToken}`)
     .toPromise()
     .then(response => {
-      console.log(response);
       return response.json().klasses
     })
     .catch(this.handleError)
@@ -28,7 +27,7 @@ export class APIService {
       console.log(response);
       return response.json().sections
     })
-    .catch(this.handleError) 
+    .catch(this.handleError)
   }
   private handleError(error:any){
     console.log(error);

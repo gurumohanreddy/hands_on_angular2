@@ -1,7 +1,8 @@
-<ul class="list-group">
-  <li class="list-group-item" 
-  *ngFor="let klass of klasses"
-  (click)="loadSections(klass.id)">
-    {{klass.name}}
-  </li>
-</ul>
+<div class="panel panel-info">
+  <div class="panel-heading">
+      <b>Class</b>
+   </div>
+   <div class="list-group">
+     <a href="" class="list-group-item" *ngFor="let klass of klasses" (click)="loadSections(klass.id)">{{klass.name}}</a>
+   </div>
+</div>
