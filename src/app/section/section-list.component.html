@@ -1,0 +1,7 @@
+<ul class="list-group" (onKlassChange)="reloadSections">
+  <li class="list-group-item" 
+  *ngFor="let section of sections"
+  (click)="loadStudents(section.id)">
+    {{section.name}}
+  </li>
+</ul>

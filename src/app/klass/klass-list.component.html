@@ -1,5 +1,7 @@
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let klass of klasses">
+  <li class="list-group-item" 
+  *ngFor="let klass of klasses"
+  (click)="loadSections(klass.id)">
     {{klass.name}}
   </li>
 </ul>
