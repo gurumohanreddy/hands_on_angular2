@@ -4,7 +4,7 @@ import {Klass} from './klass';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class KlassService {
+export class APIService {
   constructor(private _http:Http){
 
   }
