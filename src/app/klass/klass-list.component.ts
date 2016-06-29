@@ -23,7 +23,7 @@ export class KlassListComponent implements OnInit {
     this._apiService.getAllSections(klassId)
     .then(sections => {
       this.onKlassClick.emit(sections);
-      console.log(sections)
+      // console.log(sections)
     });
   }
 }

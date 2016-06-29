@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, Output ,EventEmitter  } from '@angular/core';
+import {Klass,Section,Student} from '../shared/resources';
 
 @Component({
   moduleId: module.id,
@@ -7,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['students.component.css']
 })
 export class StudentsComponent implements OnInit {
-
+  @Input() studentList:Student[];
+  @Output() onStudentClick = new EventEmitter<Student>();
+  student :Student;
   constructor() {}
 
   ngOnInit() {
+  }
+
+  onClick(student){
+    // console.log(student);
+    this.onStudentClick.emit(student);
   }
 
 }

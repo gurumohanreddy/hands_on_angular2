@@ -24,7 +24,7 @@ export class APIService {
     return this._http.get(`${this._baseUrl}/klasses/${klassId}/sections.json?access_token=${this._accessToken}`)
     .toPromise()
     .then(response => {
-      console.log(response);
+      // console.log(response);
       return response.json().sections
     })
     .catch(this.handleError)
@@ -34,7 +34,7 @@ export class APIService {
       return this._http.get(`${this._baseUrl}/klasses/${section.klass_id}/sections/${section.id}/students.json?access_token=${this._accessToken}`)
       .toPromise()
       .then(response => {
-        console.log(response);
+        // console.log(response);
         return response.json().students
       })
       .catch(this.handleError)

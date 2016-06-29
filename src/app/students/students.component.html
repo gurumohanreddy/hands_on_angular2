@@ -1,3 +1,9 @@
-<p>
-  students works!
-</p>
+<div class="panel panel-info" *ngIf="studentList">
+  <div class="panel-heading">
+      <b>Students</b>
+   </div>
+   <div class="list-group">
+     <div class="list-group-item" *ngFor="let student of studentList"
+     (click)="onClick(student)"><b>{{student.roll_number}}</b> {{student.name}}</div>
+   </div>
+</div>

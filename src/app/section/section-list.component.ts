@@ -24,7 +24,7 @@ export class SectionListComponent implements OnInit {
     this._apiService.getAllStudents(section)
     .then(students => {
       this.onSectionClick.emit(students);
-      console.log(students);
+      // console.log(students);
     });
   }
 

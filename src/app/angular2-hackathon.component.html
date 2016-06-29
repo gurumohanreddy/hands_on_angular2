@@ -7,14 +7,18 @@
       (onKlassClick)="loadSections($event)"></klass-list>
     </div>
     <div class="col-md-3">
-      <section-list [(sectionList)]="sections"
+      <section-list [sectionList]="sections"
       (onSectionClick)="loadStudents($event)"></section-list>
     </div>
     <div class="col-md-3">
-      <h3>Students</h3>
+      <app-students [studentList]="students"
+      (onStudentClick)="loadStudentDetails($event)"
+      ></app-students>
     </div>
-    <div class="col-md-3">
-      <h3>Student Details</h3>
+    <div class="col-md-4">
+      <app-studentdetail
+      [studentDetail]="student"
+      ></app-studentdetail>
     </div>
   </div>
 </div>
