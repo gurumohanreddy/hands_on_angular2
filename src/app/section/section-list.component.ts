@@ -1,7 +1,7 @@
-import {Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output ,EventEmitter } from '@angular/core';
 import { SectionComponent } from './section.component';
 import { KlassListComponent } from '../klass/klass-list.component';
-import {Section} from '../shared/resources';
+import {Section,Student} from '../shared/resources';
 
 import { APIService } from '../shared/api.service';
 
@@ -12,16 +12,20 @@ import { APIService } from '../shared/api.service';
 })
 export class SectionListComponent implements OnInit {
   @Input('sectionList') sections:Section[];
+  @Output() onSectionClick = new EventEmitter<Student[]>();
+
   constructor(private _apiService:APIService){
 
   }
   ngOnInit(){
 
   }
-  loadSections(klassId){
-    // Clear of all selected sections and students
-    this._apiService.getAllSections(klassId)
-    .then(sections => this.sections = sections);
+  onClick(section){
+    this._apiService.getAllStudents(section)
+    .then(students => {
+      this.onSectionClick.emit(students);
+      console.log(students);
+    });
   }
 
 }

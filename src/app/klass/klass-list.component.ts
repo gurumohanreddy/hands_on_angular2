@@ -10,8 +10,8 @@ import { APIService } from '../shared/api.service';
   directives : [KlassComponent]
 })
 export class KlassListComponent implements OnInit {
-  @Input('klassList') klasses:Klass[];
-  @Output() onKlassChange = new EventEmitter<Section[]>();
+  @Input() klassList:Klass[];
+  @Output() onKlassClick = new EventEmitter<Section[]>();
 
   constructor(private _apiService:APIService){
 
@@ -19,11 +19,10 @@ export class KlassListComponent implements OnInit {
   ngOnInit(){
 
   }
-  loadSections(klassId){
+  onClick(klassId){
     this._apiService.getAllSections(klassId)
     .then(sections => {
-      this.onKlassChange.emit(sections);
-      console.log('Emitted sections');
+      this.onKlassClick.emit(sections);
       console.log(sections)
     });
   }

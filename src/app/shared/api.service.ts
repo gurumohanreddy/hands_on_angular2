@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import {Klass,Section} from './resources';
+import {Klass,Section,Student} from './resources';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class APIService {
     .catch(this.handleError)
   }
 
-  getAllSections(klassId) : Promise<Section[]>{
+  getAllSections(klassId) : Promise<Student[]>{
     return this._http.get(`${this._baseUrl}/klasses/${klassId}/sections.json?access_token=${this._accessToken}`)
     .toPromise()
     .then(response => {
@@ -29,6 +29,18 @@ export class APIService {
     })
     .catch(this.handleError)
   }
+
+    getAllStudents(section): Promise<Section[]>{
+      return this._http.get(`${this._baseUrl}/klasses/${section.klass_id}/sections/${section.id}/students.json?access_token=${this._accessToken}`)
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        return response.json().students
+      })
+      .catch(this.handleError)
+    }
+
+
   private handleError(error:any){
     console.log(error);
   }

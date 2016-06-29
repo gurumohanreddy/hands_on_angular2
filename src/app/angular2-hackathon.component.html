@@ -4,11 +4,11 @@
   <div class="row">
     <div class="col-md-2">
       <klass-list [klassList]="klasses"
-      (onKlassChange)="reloadSections($event)"></klass-list>
+      (onKlassClick)="loadSections($event)"></klass-list>
     </div>
     <div class="col-md-3">
       <section-list [(sectionList)]="sections"
-      (onSectionChange)="reloadStudents()"></section-list>
+      (onSectionClick)="loadStudents($event)"></section-list>
     </div>
     <div class="col-md-3">
       <h3>Students</h3>

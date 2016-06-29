@@ -3,6 +3,6 @@
       <b>Class</b>
    </div>
    <div class="list-group">
-     <div class="list-group-item" *ngFor="let klass of klasses" (click)="loadSections(klass.id)">{{klass.name}}</div>
+     <div class="list-group-item" *ngFor="let klass of klassList" (click)="onClick(klass.id)">{{klass.name}}</div>
    </div>
 </div>

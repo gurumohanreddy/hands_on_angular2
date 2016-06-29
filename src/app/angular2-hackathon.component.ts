@@ -20,9 +20,13 @@ export class Angular2HackathonAppComponent implements OnInit {
   constructor(private _apiService:APIService){
 
   }
-  reloadSections(sections){
+  loadSections(sections){
     console.log(sections);
     this.sections = sections;
+  }
+  loadStudents(students){
+    console.log(students);
+    this.students = students;
   }
   ngOnInit(){
     this._apiService.getAllKlasses()

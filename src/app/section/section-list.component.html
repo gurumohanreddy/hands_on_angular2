@@ -5,6 +5,6 @@
    </div>
    <div class="list-group">
      <div class="list-group-item" *ngFor="let section of sections"
-     (click)="loadStudents(section.id)">{{section.name}}</div>
+     (click)="onClick(section)">{{section.name}}</div>
    </div>
 </div>
