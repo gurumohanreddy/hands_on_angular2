@@ -1,6 +1,7 @@
 import {Component, OnInit , Input, Output ,EventEmitter } from '@angular/core';
 import { KlassComponent } from './klass.component';
 import {Klass,Section,Student} from '../shared/resources';
+import {MODAL_DIRECTVES, BS_VIEW_PROVIDERS} from 'ng2-bootstrap/ng2-bootstrap';
 
 import { APIService } from '../shared/api.service';
 
@@ -28,6 +29,10 @@ export class KlassListComponent implements OnInit {
   }
 
   deleteklass(klassId){
-    this.sections.splice(this.sections.indexOf(klassId),1);
+    // this._apiService.deleteKlass(klassId)
+    //   .then(res=>{
+    //     console.log(res);
+    //   })
+    console.log(klassId);
   }
 }
