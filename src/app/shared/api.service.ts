@@ -69,6 +69,17 @@ export class APIService {
       .catch(this.handleError)
     }
 
+    createKlass(klassname){
+      let params: URLSearchParams = new URLSearchParams();
+      params.set('access_token',this._accessToken);
+      params.set('name',klassname);
+      return this._http.post(`${this._baseUrl}/klasses`,JSON.stringify({}))
+    .toPromise()
+    .then(response => {
+      console.log(response);
+    })
+
+    }
 
   private handleError(error:any){
     console.log('error: '+error);

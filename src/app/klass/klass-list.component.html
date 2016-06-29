@@ -1,12 +1,33 @@
 <div class="panel panel-info">
   <div class="panel-heading">
       <b>Class</b>
-      <a href="#"><i class="glyphicon glyphicon-plus pull-right"></i></a>
+      <a href="#" data-toggle="modal" data-target="#createKlass"><i class="glyphicon glyphicon-plus pull-right"></i></a>
    </div>
-   <div class="list-group">
-     <div class="list-group-item" *ngFor="let klass of klassList" (click)="onClick(klass.id)">
-       {{klass.name}}
-      <!-- <div (click)="deleteklass(klass.id)" class="glyphicon glyphicon-trash pull-right text-danger"></div> -->
-     </div>
+   <div class="list-group" >
+      <app-klass [klass]='klass' *ngFor="let klass of klassList" (click)="onClick(klass.id)"></app-klass>
    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="createKlass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form id="new-klass-form" novalidate="novalidate" class="simple_form new_klass" method="post">
+          <div class="form-group string required klass_name">
+            <label class="string required control-label" for="klass_name">
+              Name
+            </label>
+            <input class="string required form-control" type="text" [(ngModel)]="newKlassName" id="klass_name">
+          </div>
+          <input type="submit" name="commit" value="Add Class" class="btn btn-primary" (click)="createKlass()">
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

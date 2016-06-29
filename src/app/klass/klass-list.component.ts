@@ -13,6 +13,9 @@ import { APIService } from '../shared/api.service';
 export class KlassListComponent implements OnInit {
   @Input() klassList:Klass[];
   @Output() onKlassClick = new EventEmitter<Section[]>();
+  @Output() onKlassAdd = new EventEmitter<any>();
+
+  newklassname: string;
 
   constructor(private _apiService:APIService){
 
@@ -34,5 +37,10 @@ export class KlassListComponent implements OnInit {
     //     console.log(res);
     //   })
     console.log(klassId);
+  }
+
+  createKlass(){
+    this._apiService.createKlass(this.newklassname)
+    .then(() => {this.onKlassAdd.emit(this.newklassname); this.newklassname='';})
   }
 }
