@@ -3,6 +3,9 @@
       <b>Class</b>
    </div>
    <div class="list-group">
-     <div class="list-group-item" *ngFor="let klass of klassList" (click)="onClick(klass.id)">{{klass.name}}</div>
+     <div class="list-group-item" *ngFor="let klass of klassList" (click)="onClick(klass.id)">
+       {{klass.name}}
+      <div (click)="deleteklass(klass.id)" class="glyphicon glyphicon-trash pull-right text-danger"></div>
+     </div>
    </div>
 </div>

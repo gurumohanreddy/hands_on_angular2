@@ -26,4 +26,8 @@ export class KlassListComponent implements OnInit {
       // console.log(sections)
     });
   }
+
+  deleteklass(klassId){
+    this.sections.splice(this.sections.indexOf(klassId),1);
+  }
 }
